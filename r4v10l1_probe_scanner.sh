@@ -12,7 +12,7 @@ red_color_slim="\033[0;031m"
 white_color="\e[1;97m"
 
 whereami="$(pwd)"
-whatsmyname="$(ls $whereami | grep probe* )"
+whatsmyname="$(ls $whereami | grep r4v10l1_probe* )"
 
 if ! [ -x "$(command -v gawk)" ]; then
     echo
