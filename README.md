@@ -1,4 +1,4 @@
-## probe_scanner  
+## Probe scanner  
 #### Filters probe requests using awk &amp; tcpdump. All wrote in bash.  
   
 A bash script wrote based in [ https://github.com/brannondorsey/sniff-probes ].
