@@ -1,10 +1,8 @@
 #!/bin/bash
 
-#########################
-#        R4V10L1        #
-#########################
-# Credits to Señor_Foo btw (<3)
+# https://github.com/r4v10l1/probe-scanner
 
+# Define color codes
 normal_color="\e[1;0m"
 green_color="\033[1;32m"
 red_color="\033[1;31m"
@@ -12,7 +10,7 @@ red_color_slim="\033[0;031m"
 white_color="\e[1;97m"
 
 whereami="$(pwd)"
-whatsmyname="$(ls $whereami | grep r4v10l1_probe* )"
+my_filename="$(ls $whereami | grep probe* )"
 
 if ! [ -x "$(command -v gawk)" ]; then
     echo
@@ -22,7 +20,6 @@ if ! [ -x "$(command -v gawk)" ]; then
 fi
 
 channel_hop() {
-
 	IEEE80211bg="1 2 3 4 5 6 7 8 9 10 11"
 	IEEE80211bg_intl="$IEEE80211b 12 13 14"
 	IEEE80211a="36 40 44 48 52 56 60 64 149 153 157 161"
@@ -39,7 +36,7 @@ channel_hop() {
 
 if [[ $1 == "" || $1 == " " ]]
 then
-    echo -e "${white_color} USAGE: $whatsmyname -i ${normal_color}<interface> ${white_color}-c ${normal_color}<channel> ${white_color}-m ${normal_color}<mode>"
+    echo -e "${white_color} USAGE: $my_filename -i ${normal_color}<interface> ${white_color}-c ${normal_color}<channel> ${white_color}-m ${normal_color}<mode>"
     echo -e "${white_color} Use ${normal_color}-h ${white_color}to see the full help.${normal_color}"
     exit 0
 fi
@@ -161,7 +158,8 @@ else
     echo
     exit 0
 fi
-## ACTUAL EXECUTION ##
+
+# -------------------  ACTUAL EXECUTION -------------------
 
 if [[ $channel == "h" ]]
 then
@@ -182,7 +180,3 @@ fi
 
 mkdir logs 2>/dev/null
 sudo tcpdump -l -I -i ${interface} -e -s 256 type mgt subtype probe-req | awk -f gAWKs/$awk_file_name | tee -a "logs/$(date).txt"
-
-
-
-# exit 0
