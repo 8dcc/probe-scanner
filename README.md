@@ -5,7 +5,7 @@ A bash script wrote based in [brannondorsey/sniff-probes](https://github.com/bra
 
 ### Usage  
 ```bash
-bash r4v10l1_probe_scanner.sh -i <interface> -c <channel/h> -m <mode>
+bash probe-scanner.sh -i <interface> -c <channel/h> -m <mode>
 ```  
 You can use `bash probe-scanner.sh -h` to see the full help.
 
